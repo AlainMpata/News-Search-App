@@ -1,4 +1,4 @@
-const apiKey = "7db671b637a14d41a8cd586d32b796d5";
+const apiKey = "01efc7efcd1339fb8d82894faa5039b4";
 
 const blogContainer = document.getElementById("blog-container");
 const searchField = document.getElementById ('search-input');
@@ -7,7 +7,7 @@ const searchInput = document.getElementById ('search-input');
 
 async function fecthRandomNews(){
     try{
-        const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&pageSize=10&apiKey=${apiKey}`;
+        const apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${apiKey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         return data.articles;
@@ -48,7 +48,7 @@ searchInput.addEventListener("keydown", async (event) => {
 
 async function fecthNewsQuery (query) {
   try{
-        const apiUrl = `https://newsapi.org/v2/everything?q=${query}&pageSize=10&apiKey=${apiKey}`;
+        const apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${apiKey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         return data.articles;
