@@ -48,7 +48,7 @@ searchInput.addEventListener("keydown", async (event) => {
 
 async function fecthNewsQuery (query) {
   try{
-        const apiUrl = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=${apiKey}`;
+        const apiUrl = `https://gnews.io/api/v4/top-headlines?q=${query}&lang=en&apikey=${apiKey}`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         return data.articles;
@@ -65,9 +65,9 @@ function displayBlogs(articles){
         const blogCard = document.createElement("div");
         blogCard.classList.add("blog-card");
         const img = document.createElement ("img");
-        //img.src = article.urlToImage;
-        if (article.urlToImage) {
-    img.src = article.urlToImage;
+        //img.src = article.image;
+        if (article.image) {
+    img.src = article.image;
 } else {
     img.style.display = "none"; // or use a placeholder image
    
